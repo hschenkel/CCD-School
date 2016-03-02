@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,16 @@ namespace Todo
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private ObservableCollection<ElementViewModel> liste = new ObservableCollection<ElementViewModel>();
+
 		public MainWindow()
 		{
+
 			InitializeComponent();
+
+			//datenquellen verbinden
+			listBox1.ItemsSource = getObsUntersuchung();
+			listView2.ItemsSource = liste;
 		}
 	}
 }
